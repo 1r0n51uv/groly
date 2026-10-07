@@ -1,0 +1,33 @@
+appId: com.sevamm.groly
+name: Data survives an app restart
+tags:
+  - storage
+---
+- launchApp:
+    clearState: true
+- runFlow:
+    file: subflows/create_list.yaml
+    env:
+      LIST: Pantry
+- tapOn:
+    id: add-input
+- inputText: Reis, 2x Tomaten
+- tapOn:
+    id: add-button
+- tapOn:
+    id: item-Reis
+
+# Cold start: everything comes back from the on-device database
+- stopApp
+- launchApp
+- assertVisible:
+    id: list-count-Pantry
+    text: "1"
+- tapOn:
+    id: list-Pantry
+- assertVisible:
+    id: item-Tomaten
+- assertVisible:
+    id: section-checked
+- assertVisible:
+    id: item-Reis

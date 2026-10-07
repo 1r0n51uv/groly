@@ -1,0 +1,91 @@
+import type { Messages } from './en';
+
+export const it: Messages = {
+	'tabs.lists': 'Liste',
+	'tabs.tracker': 'Tracker',
+	'tabs.nutrition': 'Alimentazione',
+	'tabs.recipes': 'Ricette',
+	'tabs.settings': 'Impostazioni',
+
+	'common.cancel': 'Annulla',
+	'common.delete': 'Elimina',
+	'common.add': 'Aggiungi',
+	'common.longPressToDelete': 'Tieni premuto per eliminare',
+
+	'lists.empty': 'Ancora nessuna lista. Creane una qui sotto.',
+	'lists.newPlaceholder': 'Nuova lista',
+	'lists.deleteTitle': 'Eliminare "{name}"?',
+	'lists.deleteMessage': 'Tutti gli articoli di questa lista verranno eliminati.',
+
+	'list.empty': 'Questa lista è vuota.',
+	'list.addPlaceholder': 'Aggiungi (es. 2x Latte, Pane)',
+	'list.deleteItemTitle': 'Eliminare "{name}"?',
+	'list.done': 'Fatto',
+
+	'common.save': 'Salva',
+	'common.remove': 'Rimuovi',
+
+	'listOptions.title': 'Opzioni lista',
+	'listOptions.name': 'Nome',
+	'listOptions.icon': 'Icona',
+	'listOptions.noIcon': 'Nessuna',
+	'listOptions.clearChecked': 'Rimuovi articoli completati',
+	'listOptions.clearCheckedConfirm': 'Rimuovere {count} articoli completati?',
+	'listOptions.nothingChecked': 'Non ci sono articoli completati.',
+	'listOptions.sorting': 'Ordinamento',
+	'listOptions.customOrder': 'Ordine personalizzato per questa lista',
+	'listOptions.customOrderHint': 'Disattivato: questa lista usa l’ordinamento delle Impostazioni.',
+
+	'sort.groupByCategory': 'Raggruppa per categoria',
+	'sort.orderHint': 'Dall’alto verso il basso, nell’ordine in cui giri per il negozio.',
+	'sort.moveUp': 'Sposta {category} in alto',
+	'sort.moveDown': 'Sposta {category} in basso',
+
+	'item.title': 'Modifica articolo',
+	'item.name': 'Nome',
+	'item.quantity': 'Quantità',
+	'item.category': 'Categoria',
+	'item.categoryAuto': 'Automatica ({category})',
+	'item.favorite': 'Preferito',
+	'item.delete': 'Elimina articolo',
+
+	'favorites.title': 'Preferiti',
+	'favorites.open': 'Apri preferiti',
+	'favorites.empty': 'Ancora nessun preferito. Tieni premuto un articolo in una lista e attiva la stella.',
+	'favorites.removeTitle': 'Rimuovere "{name}" dai preferiti?',
+	'favorites.onList': 'Già in lista',
+
+	'settings.lists': 'Liste della spesa',
+	'settings.categoryOrder': 'Ordine delle categorie',
+	'settings.showFavoriteIndicator': 'Segna i preferiti con un punto',
+
+	'comingSoon.title': 'Prossimamente',
+	'comingSoon.body': '{feature} arriverà in un aggiornamento futuro. Puoi nascondere questa scheda nelle Impostazioni.',
+
+	'settings.language': 'Lingua',
+	'settings.languageSystem': 'Lingua del dispositivo',
+	'settings.appearance': 'Aspetto',
+	'settings.themeSystem': 'Sistema',
+	'settings.themeLight': 'Chiaro',
+	'settings.themeDark': 'Scuro',
+	'settings.sections': 'Sezioni',
+	'settings.sectionsHint': 'Le sezioni nascoste spariscono dalla barra delle schede. I loro dati vengono conservati.',
+	'settings.backup': 'Backup',
+	'settings.backupHint': 'Tutti i dati sono salvati solo su questo dispositivo. Esporta un backup per tenerli al sicuro o trasferirli su un nuovo telefono.',
+	'settings.export': 'Esporta backup',
+	'settings.import': 'Importa backup',
+	'settings.importConfirmTitle': 'Sostituire tutti i dati?',
+	'settings.importConfirmMessage': 'Le liste e le impostazioni attuali verranno sostituite dal backup. L’operazione non può essere annullata.',
+	'settings.importConfirm': 'Sostituisci',
+	'settings.importDone': 'Backup ripristinato',
+	'settings.importDoneMessage': '{lists} liste e {items} articoli importati.',
+	'settings.importInvalid': 'Questo file non è un backup Groly valido.',
+	'settings.importNewer': 'Questo backup è stato creato da una versione più recente di Groly. Aggiorna prima l’app.',
+	'settings.exportFailed': 'Esportazione non riuscita',
+	'settings.importFailed': 'Importazione non riuscita',
+	'settings.about': 'Informazioni',
+	'settings.version': 'Versione {version}',
+	'settings.disclaimerTitle': 'Avviso sulla salute',
+	'settings.disclaimer':
+		'Groly non è un dispositivo medico. Le informazioni su alimentazione, integratori e calorie hanno solo scopo orientativo e non sostituiscono il parere di un medico o di un nutrizionista.'
+};

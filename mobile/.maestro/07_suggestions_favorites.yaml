@@ -1,0 +1,81 @@
+appId: com.sevamm.groly
+name: Suggestions while typing, favourites with dot and re-add panel
+tags:
+  - items
+---
+- launchApp:
+    clearState: true
+- runFlow:
+    file: subflows/create_list.yaml
+    env:
+      LIST: Weekend
+- tapOn:
+    id: add-input
+- inputText: Hafermilch
+- tapOn:
+    id: add-button
+- hideKeyboard
+
+# A name used before is suggested on another list; tapping the chip adds it
+- back
+- runFlow:
+    file: subflows/create_list.yaml
+    env:
+      LIST: Weekday
+- tapOn:
+    id: add-input
+- inputText: Hafer
+- tapOn:
+    id: suggestion-Hafermilch
+- assertVisible:
+    id: item-Hafermilch
+# Already on this list: no longer suggested
+- tapOn:
+    id: add-input
+- inputText: Hafer
+- assertNotVisible:
+    id: suggestion-Hafermilch
+- eraseText
+- hideKeyboard
+
+# Star it: the item gets a dot
+- longPressOn:
+    id: item-Hafermilch
+- tapOn:
+    id: item-favorite
+- tapOn:
+    id: item-save
+- assertVisible:
+    id: fav-dot-Hafermilch
+
+# Delete it, then add it back from the favourites panel
+- longPressOn:
+    id: item-Hafermilch
+- scrollUntilVisible:
+    element:
+      id: item-delete
+- tapOn:
+    id: item-delete
+- tapOn: "(?i)delete"
+- assertNotVisible:
+    id: item-Hafermilch
+- tapOn:
+    id: favorites-button
+- tapOn:
+    id: favorite-Hafermilch
+- assertVisible: On the list
+- back
+- assertVisible:
+    id: fav-dot-Hafermilch
+
+# The dot can be turned off in Settings
+- tapOn:
+    id: tab-settings
+- tapOn:
+    id: toggle-showFavoriteIndicator
+- tapOn:
+    id: tab-lists
+- assertVisible:
+    id: item-Hafermilch
+- assertNotVisible:
+    id: fav-dot-Hafermilch

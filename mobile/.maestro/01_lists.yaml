@@ -1,0 +1,36 @@
+appId: com.sevamm.groly
+name: Create and delete lists
+tags:
+  - lists
+---
+- launchApp:
+    clearState: true
+- assertVisible: No lists yet. Create one below.
+
+- runFlow:
+    file: subflows/create_list.yaml
+    env:
+      LIST: Weekend
+- back
+- assertVisible:
+    id: list-Weekend
+- assertVisible:
+    id: list-count-Weekend
+    text: "0"
+
+- runFlow:
+    file: subflows/create_list.yaml
+    env:
+      LIST: Drugstore
+- back
+- assertVisible:
+    id: list-Drugstore
+
+# Long-press deletes after confirmation, the other list stays
+- longPressOn:
+    id: list-Weekend
+- tapOn: "(?i)delete"
+- assertNotVisible:
+    id: list-Weekend
+- assertVisible:
+    id: list-Drugstore

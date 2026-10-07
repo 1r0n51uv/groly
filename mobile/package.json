@@ -1,0 +1,45 @@
+{
+  "name": "groly-mobile",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.2",
+    "expo": "~57.0.27",
+    "expo-constants": "~57.0.21",
+    "expo-crypto": "~57.0.3",
+    "expo-document-picker": "~57.0.3",
+    "expo-file-system": "~57.0.7",
+    "expo-font": "~57.0.4",
+    "expo-haptics": "~57.0.3",
+    "expo-linking": "~57.0.12",
+    "expo-localization": "~57.0.2",
+    "expo-router": "~57.0.25",
+    "expo-sharing": "~57.0.22",
+    "expo-sqlite": "~57.0.4",
+    "expo-status-bar": "~57.0.1",
+    "expo-system-ui": "~57.0.4",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "~4.26.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/react": "~19.2.2",
+    "better-sqlite3": "^13.0.3",
+    "typescript": "~6.0.3",
+    "vitest": "^5.0.3"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "typecheck": "tsc --noEmit",
+    "e2e": "node e2e/run.mjs",
+    "e2e:build": "node e2e/run.mjs --build",
+    "test": "vitest run"
+  },
+  "private": true
+}

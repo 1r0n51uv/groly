@@ -1,0 +1,47 @@
+appId: com.sevamm.groly
+name: Switch language to Italian and back to the device language
+tags:
+  - settings
+---
+- launchApp:
+    clearState: true
+- tapOn:
+    id: tab-settings
+- tapOn:
+    id: lang-it
+
+# UI, tab bar and category names switch immediately
+- assertVisible: Impostazioni
+- assertVisible: Lingua
+- tapOn:
+    id: tab-lists
+- assertVisible: Ancora nessuna lista. Creane una qui sotto.
+- runFlow:
+    file: subflows/create_list.yaml
+    env:
+      LIST: Spesa
+- assertVisible: Questa lista è vuota.
+- tapOn:
+    id: add-input
+- inputText: Milch, Bananen
+- tapOn:
+    id: add-button
+- assertVisible:
+    id: section-milch
+- assertVisible: "(?i)latticini"
+- assertVisible: "(?i)frutta e verdura"
+- hideKeyboard
+- takeScreenshot: list-it
+
+# The choice survives a restart
+- stopApp
+- launchApp
+- assertVisible: Liste
+
+# Back to the device language (English on the emulator)
+- tapOn:
+    id: tab-settings
+- tapOn:
+    id: lang-system
+- assertVisible: Settings
+- assertVisible: Language

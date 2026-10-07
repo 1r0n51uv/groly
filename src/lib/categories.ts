@@ -39,7 +39,12 @@ export const CATEGORIES: CategoryDef[] = [
 			'porridge', 'breakfast cereal', 'breakfast cereals', 'cereal', 'cereals', 'corn flakes',
 			'muesli', 'granola', 'breadcrumbs', 'flatbread', 'sourdough', 'rye bread',
 			'whole grain', 'whole wheat', 'buckwheat', 'rice flour', 'cornstarch', 'semolina',
-			'sandwich bread', 'pretzel', 'pretzels', 'crispbread'
+			'sandwich bread', 'pretzel', 'pretzels', 'crispbread',
+			// Italiano
+			'pane', 'pane integrale', 'pane in cassetta', 'pancarre', 'panino', 'panini', 'pagnotta',
+			'grissini', 'fette biscottate', 'biscotti', 'cornetto', 'cornetti', 'piadina', 'piadine',
+			'tramezzini', 'farina', 'lievito', 'lievito di birra', 'pangrattato', 'cereali',
+			"fiocchi d'avena", 'crostata', 'torta', 'ciambella'
 		],
 		category: {
 			color: '#D97706',
@@ -63,7 +68,13 @@ export const CATEGORIES: CategoryDef[] = [
 			'cream cheese', 'sour cream', 'condensed milk', 'buttermilk', 'whipped cream',
 			'cottage cheese', 'gruyere', 'cheddar', 'halloumi', 'burrata', 'greek yogurt',
 			'heavy cream', 'double cream', 'single cream', 'clotted cream', 'skyr',
-			'lactose free', 'lactose-free', 'emmental', 'swiss cheese'
+			'lactose free', 'lactose-free', 'emmental', 'swiss cheese',
+			// Italiano
+			'latte', 'latte intero', 'latte scremato', 'latte parzialmente scremato', 'formaggio',
+			'formaggi', 'burro', 'panna', 'panna da cucina', 'panna montata', 'yogurt greco', 'uovo',
+			'uova', 'parmigiano', 'parmigiano reggiano', 'grana', 'grana padano', 'stracchino', 'scamorza',
+			'provola', 'provolone', 'fontina', 'asiago', 'taleggio', 'fiocchi di latte', 'crescenza',
+			'robiola', 'squacquerone'
 		],
 		category: {
 			color: '#60A5FA',
@@ -97,7 +108,14 @@ export const CATEGORIES: CategoryDef[] = [
 			'pepperoni', 'pastrami', 'prosciutto', 'pancetta', 'lardons', 'roast beef',
 			'sirloin', 'ribeye', 'tenderloin', 'fillet', 'sea bass', 'sea bream', 'scallops',
 			'tofu', 'tempeh', 'seitan', 'quorn', 'plant-based meat', 'vegan meat',
-			'veggie burger', 'veggie sausage', 'vegan sausage', 'vegan chicken'
+			'veggie burger', 'veggie sausage', 'vegan sausage', 'vegan chicken',
+			// Italiano
+			'carne', 'carne macinata', 'macinato', 'pollo', 'petto di pollo', 'manzo', 'vitello', 'maiale',
+			'tacchino', 'agnello', 'salsiccia', 'salsicce', 'wurstel', 'prosciutto cotto',
+			'prosciutto crudo', 'salame', 'mortadella', 'bresaola', 'guanciale', 'cotoletta', 'cotolette',
+			'bistecca', 'spezzatino', 'pesce', 'tonno', 'salmone', 'salmone affumicato', 'merluzzo',
+			'gamberi', 'gamberetti', 'cozze', 'vongole', 'calamari', 'polpo', 'acciughe', 'alici', 'orata',
+			'branzino', 'baccala', 'frutti di mare'
 		],
 		category: {
 			color: '#EF4444',
@@ -110,7 +128,7 @@ export const CATEGORIES: CategoryDef[] = [
 			'wasser', 'saft', 'cola', 'bier', 'wein', 'kaffee', 'tee', 'limonade', 'getränk',
 			'getränke', 'mineralwasser', 'sprudel', 'fanta', 'sprite', 'pepsi', 'eistee',
 			'orangensaft', 'apfelsaft', 'multivitamin', 'smoothie', 'energie', 'energy drink',
-			'latte', 'cappuccino', 'espresso', 'kakao', 'malzbier', 'radler', 'sekt', 'prosecco',
+			'latte macchiato', 'cappuccino', 'espresso', 'kakao', 'malzbier', 'radler', 'sekt', 'prosecco',
 			'champagner', 'schnaps', 'whisky', 'rum', 'vodka', 'gin', 'cocktail', 'sirup',
 			'kombucha', 'almdudler', 'bionade', 'matcha', 'eiskaffee', 'frappuccino',
 			'apfelschorle', 'weinschorle', 'bananenmilch', 'hafermilch', 'mandelmilch', 'sojamilch',
@@ -122,11 +140,17 @@ export const CATEGORIES: CategoryDef[] = [
 			// English
 			'water', 'juice', 'beer', 'wine', 'coffee', 'tea', 'lemonade', 'drink', 'drinks',
 			'mineral water', 'sparkling water', 'orange juice', 'apple juice', 'smoothie',
-			'energy drink', 'latte', 'cappuccino', 'espresso', 'cocoa', 'hot chocolate',
+			'energy drink', 'caffe latte', 'cappuccino', 'espresso', 'cocoa', 'hot chocolate',
 			'prosecco', 'champagne', 'whiskey', 'whisky', 'rum', 'vodka', 'gin', 'cocktail',
 			'syrup', 'kombucha', 'matcha', 'iced coffee', 'oat milk', 'almond milk',
 			'soy milk', 'rice milk', 'coconut milk', 'cold brew', 'lemonade', 'squash',
-			'cider', 'hard cider', 'soda', 'tonic water', 'ginger beer', 'iced tea'
+			'cider', 'hard cider', 'soda', 'tonic water', 'ginger beer', 'iced tea',
+			// Italiano
+			'acqua', 'acqua frizzante', 'acqua naturale', 'succo', 'succhi', 'succo di frutta', 'spremuta',
+			'aranciata', 'limonata', 'bibita', 'bibite', 'birra', 'birre', 'vino', 'vino rosso',
+			'vino bianco', 'spumante', 'caffe', 'caffe macinato', 'caffe in grani', 'capsule', 'cialde',
+			'te', 'tisana', 'camomilla', 'cioccolata calda', 'latte di soia', 'latte di mandorla',
+			'latte di avena', 'bevanda vegetale', 'aperitivo', 'amaro', 'grappa', 'liquore'
 		],
 		category: {
 			color: '#06B6D4',
@@ -146,7 +170,11 @@ export const CATEGORIES: CategoryDef[] = [
 			'frozen', 'ice cream', 'pizza', 'french fries', 'fries', 'chips frozen',
 			'fish fingers', 'fish sticks', 'chicken nuggets', 'spring rolls', 'edamame',
 			'gyoza', 'hash browns', 'frozen vegetables', 'frozen fish', 'frozen pizza',
-			'frozen peas', 'frozen spinach', 'sorbet', 'gelato', 'popsicle', 'ice lolly'
+			'frozen peas', 'frozen spinach', 'sorbet', 'gelato', 'popsicle', 'ice lolly',
+			// Italiano
+			'surgelati', 'surgelato', 'surgelata', 'gelato', 'gelati', 'ghiaccioli', 'ghiaccio',
+			'bastoncini di pesce', 'sofficini', 'verdure surgelate', 'pizza surgelata',
+			'minestrone surgelato'
 		],
 		category: {
 			color: '#93C5FD',
@@ -174,7 +202,11 @@ export const CATEGORIES: CategoryDef[] = [
 			'tortilla chips', 'nachos', 'popcorn', 'pretzels', 'rice cakes', 'crisps',
 			'granola bar', 'cereal bar', 'protein bar', 'energy bar', 'dried fruit',
 			'fruit gummies', 'jelly beans', 'toffee', 'fudge', 'marshmallow', 'nougat',
-			'peanut butter', 'nutella', 'hazelnut spread'
+			'peanut butter', 'nutella', 'hazelnut spread',
+			// Italiano
+			'patatine', 'cioccolato', 'cioccolata', 'cioccolatini', 'caramelle', 'gomme da masticare',
+			'merendine', 'salatini', 'taralli', 'noccioline', 'arachidi', 'mandorle', 'noci', 'nocciole',
+			'pistacchi', 'frutta secca', 'barrette', 'gelatine', 'wafer'
 		],
 		category: {
 			color: '#F472B6',
@@ -198,7 +230,14 @@ export const CATEGORIES: CategoryDef[] = [
 			'tape', 'foil', 'aluminium foil', 'aluminum foil', 'cling film', 'plastic wrap',
 			'baking paper', 'parchment paper', 'kitchen roll', 'paper towels', 'tissues',
 			'wet wipes', 'baby wipes', 'nappies', 'diapers', 'broom', 'mop',
-			'candle', 'candles', 'batteries', 'light bulb', 'light bulbs', 'household', 'cleaning'
+			'candle', 'candles', 'batteries', 'light bulb', 'light bulbs', 'household', 'cleaning',
+			// Italiano
+			'detersivo', 'detersivi', 'detersivo per piatti', 'detersivo lavatrice', 'ammorbidente',
+			'candeggina', 'sgrassatore', 'anticalcare', 'detergente', 'spugne', 'spugna', 'carta igienica',
+			'carta da cucina', 'scottex', 'tovaglioli', 'fazzoletti', 'sacchetti',
+			'sacchi della spazzatura', 'pellicola', 'carta stagnola', 'carta forno', 'pile', 'batterie',
+			'lampadina', 'lampadine', 'candele', 'fiammiferi', 'pastiglie lavastoviglie',
+			'sale lavastoviglie'
 		],
 		category: {
 			color: '#A78BFA',
@@ -217,7 +256,10 @@ export const CATEGORIES: CategoryDef[] = [
 			// English
 			'noodles', 'rice', 'basmati rice', 'jasmine rice', 'risotto rice', 'brown rice',
 			'whole wheat pasta', 'macaroni', 'vermicelli', 'orzo', 'couscous', 'bulgur',
-			'quinoa', 'millet', 'buckwheat', 'rice noodles', 'glass noodles', 'egg noodles'
+			'quinoa', 'millet', 'buckwheat', 'rice noodles', 'glass noodles', 'egg noodles',
+			// Italiano
+			'riso', 'risotto', 'riso carnaroli', 'riso arborio', 'maccheroni', 'paccheri', 'orecchiette',
+			'bucatini', 'tortiglioni', 'conchiglie', 'ditalini', 'pastina', 'cous cous', 'farro', 'polenta'
 		],
 		category: {
 			color: '#F97316',
@@ -246,7 +288,12 @@ export const CATEGORIES: CategoryDef[] = [
 			'peanut butter', 'almond butter', 'nut butter', 'hazelnut butter',
 			'canned beans', 'kidney beans', 'chickpeas', 'lentils', 'canned corn',
 			'canned fish', 'canned tuna', 'canned sardines',
-			'instant soup', 'canned soup', 'soup mix', 'ready meal', 'ready sauce'
+			'instant soup', 'canned soup', 'soup mix', 'ready meal', 'ready sauce',
+			// Italiano
+			'pelati', 'pomodori pelati', 'passata', 'passata di pomodoro', 'polpa di pomodoro', 'sugo',
+			'sughi', 'ragu', 'fagioli', 'ceci', 'lenticchie', 'tonno in scatola', 'legumi', 'olive',
+			'capperi', 'sottaceti', 'carciofini', 'marmellata', 'confettura', 'miele', 'maionese', 'senape',
+			'salsa', 'salse', 'brodo', 'dado', 'dadi'
 		],
 		category: {
 			color: '#2DD4BF',
@@ -284,7 +331,12 @@ export const CATEGORIES: CategoryDef[] = [
 			'honey', 'maple syrup', 'agave syrup', 'agave nectar', 'stevia',
 			'soy sauce', 'worcestershire sauce', 'hot sauce', 'sriracha', 'fish sauce',
 			'oyster sauce', 'hoisin sauce', 'teriyaki sauce', 'tahini',
-			'stock', 'stock cube', 'broth', 'vegetable stock', 'chicken stock', 'beef stock'
+			'stock', 'stock cube', 'broth', 'vegetable stock', 'chicken stock', 'beef stock',
+			// Italiano
+			'sale', 'sale grosso', 'sale fino', 'pepe', 'olio', "olio d'oliva", 'olio extravergine',
+			'olio di semi', 'aceto', 'aceto balsamico', 'zucchero', 'spezie', 'origano', 'cannella',
+			'noce moscata', 'peperoncino', 'bicarbonato', 'amido', 'vaniglia', 'zafferano',
+			'rosmarino secco'
 		],
 		category: {
 			color: '#D97706',
@@ -317,7 +369,12 @@ export const CATEGORIES: CategoryDef[] = [
 			'toner', 'serum', 'primer', 'highlighter', 'lip liner', 'lip gloss', 'lip balm',
 			'chapstick', 'face mask', 'facial mask', 'bb cream', 'tweezers', 'nail scissors',
 			'nail file', 'hair dye', 'hair color', 'body scrub', 'exfoliator',
-			'micellar water', 'cleansing milk', 'make up remover', 'personal care', 'beauty', 'skincare'
+			'micellar water', 'cleansing milk', 'make up remover', 'personal care', 'beauty', 'skincare',
+			// Italiano
+			'dentifricio', 'spazzolino', 'spazzolini', 'filo interdentale', 'collutorio', 'balsamo',
+			'bagnoschiuma', 'docciaschiuma', 'sapone', 'saponetta', 'deodorante', 'crema', 'crema viso',
+			'crema mani', 'rasoio', 'rasoi', 'schiuma da barba', 'assorbenti', 'tamponi', 'salviette',
+			'dischetti struccanti', 'cotton fioc', 'pannolini', 'cerotti', 'profumo', 'lacca'
 		],
 		category: {
 			color: '#F472B6',
@@ -356,7 +413,17 @@ export const CATEGORIES: CategoryDef[] = [
 			'pomegranate', 'corn', 'asparagus', 'eggplant', 'aubergine', 'fennel', 'artichoke',
 			'papaya', 'sweet potato', 'sweet potatoes', 'spring onion', 'scallion', 'lemongrass',
 			'cilantro', 'coriander', 'dill', 'rosemary', 'sage', 'leek', 'turnip', 'kohlrabi',
-			'bok choy', 'pak choi', 'lime', 'limes', 'grapefruit', 'dates', 'coconut'
+			'bok choy', 'pak choi', 'lime', 'limes', 'grapefruit', 'dates', 'coconut',
+			// Italiano
+			'frutta', 'verdura', 'mela', 'mele', 'pera', 'pere', 'banane', 'arancia', 'arance', 'limone',
+			'limoni', 'mandarini', 'clementine', 'fragola', 'fragole', 'uva', 'pesca', 'pesche',
+			'albicocca', 'albicocche', 'prugne', 'ciliegie', 'melone', 'anguria', 'cocomero',
+			'frutti di bosco', 'mirtilli', 'lamponi', 'pomodoro', 'pomodori', 'pomodorini', 'insalata',
+			'lattuga', 'rucola', 'spinaci', 'zucchina', 'zucchine', 'melanzana', 'melanzane', 'peperone',
+			'peperoni', 'carota', 'carote', 'patata', 'patate', 'cipolla', 'cipolle', 'aglio', 'cetriolo',
+			'cetrioli', 'sedano', 'finocchio', 'finocchi', 'cavolfiore', 'cavolo', 'carciofi', 'funghi',
+			'fungo', 'porro', 'porri', 'zucca', 'fagiolini', 'prezzemolo', 'basilico', 'salvia', 'menta',
+			'zenzero'
 		],
 		category: {
 			color: 'var(--color-primary)',

@@ -112,6 +112,64 @@ const REQUIRED_CASES: GoldenCase[] = [
 	['Unbekannter Spezialartikel', 'default']
 ];
 
+// Italienisch: das Hauptwort steht vorne ("succo di mela" = Apfelsaft), "latte" ist Milch.
+const ITALIAN_CASES: GoldenCase[] = [
+	['Latte', 'milch', 'milk-container'],
+	['Latte intero', 'milch', 'milk-container'],
+	['Fiocchi di latte', 'milch'],
+	['Latte macchiato', 'getraenke', 'coffee'],
+	['Caffè latte', 'getraenke', 'coffee'],
+	['Chai Latte', 'getraenke', 'coffee'],
+	['Latte di soia', 'getraenke', 'milk-container'],
+	['Latte d’avena', 'getraenke', 'milk-container'],
+	['Succo di mela', 'getraenke'],
+	['Succo d’arancia', 'getraenke'],
+	['Pasta al pesto', 'nudeln'],
+	['Pasta all’uovo', 'nudeln'],
+	['Gelato al pistacchio', 'tiefkuehl'],
+	['Bastoncini di pesce', 'tiefkuehl'],
+	['Spinaci surgelati', 'tiefkuehl'],
+	['Sugo al pomodoro', 'konserven'],
+	['Passata di pomodoro', 'konserven'],
+	['Pomodori pelati', 'konserven'],
+	['Concentrato di pomodoro', 'konserven', 'tube'],
+	['Tonno in scatola', 'konserven'],
+	['Petto di pollo', 'fleisch'],
+	['Prosciutto cotto', 'fleisch'],
+	['Salmone affumicato', 'fleisch'],
+	['Uova', 'milch'],
+	['Burro', 'milch'],
+	['Parmigiano Reggiano', 'milch'],
+	['Mozzarella di bufala', 'milch'],
+	['Pane integrale', 'backwaren'],
+	['Biscotti', 'backwaren'],
+	['Farina 00', 'backwaren'],
+	['Acqua frizzante', 'getraenke'],
+	['Birra', 'getraenke'],
+	['Vino rosso', 'getraenke'],
+	['Tè verde', 'getraenke', 'tea'],
+	['Caffè macinato', 'getraenke', 'coffee'],
+	['Cioccolata calda', 'getraenke'],
+	['Cioccolato fondente', 'snacks'],
+	['Patatine', 'snacks'],
+	['Carta igienica', 'haushalt', 'paper-goods'],
+	['Detersivo per piatti', 'haushalt'],
+	['Spazzolino', 'koerperpflege'],
+	['Dentifricio', 'koerperpflege', 'tube'],
+	['Bagnoschiuma', 'koerperpflege'],
+	['Olio extravergine di oliva', 'gewuerze'],
+	['Aceto balsamico', 'gewuerze'],
+	['Sale grosso', 'gewuerze'],
+	['Zucchero', 'gewuerze'],
+	['Mele', 'obst'],
+	['Pomodori', 'obst'],
+	['Zucchine', 'obst'],
+	['Insalata', 'obst'],
+	['Funghi', 'obst'],
+	['Riso Carnaroli', 'nudeln'],
+	['Spaghetti', 'nudeln']
+];
+
 // Diese wenigen Begriffe waren bereits mehrfach in der alten Keyword-Liste
 // vorhanden. Die neue fachliche Hauptwortlogik legt ihre beabsichtigte
 // Bedeutung explizit fest, statt von der Array-Reihenfolge abzuhängen.
@@ -161,6 +219,13 @@ describe('item resolver', () => {
 		const resolution = resolveItem(name);
 		expect(resolution.categoryKey).toBe(categoryKey);
 		expect(resolution.visualGroup).toBe(visualGroup);
+	});
+
+	it.each(ITALIAN_CASES.map(([name, categoryKey, visualGroup]) => ({ name, categoryKey, visualGroup })))
+	('Italian: $name → $categoryKey', ({ name, categoryKey, visualGroup }) => {
+		const resolution = resolveItem(name);
+		expect(resolution.categoryKey).toBe(categoryKey);
+		if (visualGroup) expect(resolution.visualGroup).toBe(visualGroup);
 	});
 
 	it('keeps a bilingual legacy golden matrix with more than 300 unique names', () => {

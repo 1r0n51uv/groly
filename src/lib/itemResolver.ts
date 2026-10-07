@@ -54,11 +54,12 @@ const CONCEPT_RULES: ConceptRule[] = [
 	// Vollständige Produkt- und Verpackungsformen. Diese Stufe gewinnt immer.
 	{
 		id: 'tomato-paste', categoryKey: 'konserven', visualGroup: 'tube',
-		phrases: ['tomatenmark', 'tomato paste', 'tomato puree tube', 'tomatenmark tube']
+		phrases: ['tomatenmark', 'tomato paste', 'tomato puree tube', 'tomatenmark tube', 'concentrato di pomodoro', 'doppio concentrato']
 	},
 	{
 		id: 'toothpaste', categoryKey: 'koerperpflege', visualGroup: 'tube',
-		phrases: ['zahnpasta', 'zahncreme', 'toothpaste', 'tooth paste', 'dental cream']
+		phrases: ['zahnpasta', 'zahncreme', 'toothpaste', 'tooth paste', 'dental cream'],
+		headwords: ['dentifricio']
 	},
 	{
 		id: 'canned-product', categoryKey: 'konserven',
@@ -85,38 +86,39 @@ const CONCEPT_RULES: ConceptRule[] = [
 	},
 	{
 		id: 'paper-goods', categoryKey: 'haushalt', visualGroup: 'paper-goods',
-		phrases: ['toilettenpapier', 'toilet paper', 'toilet roll', 'loo roll', 'kuechenrolle', 'kitchen roll', 'paper towels', 'papiertuecher', 'papiertaschentuch', 'taschentuecher', 'paper tissues'],
-		headwords: ['kuechenrolle', 'toilettenpapier', 'taschentuecher', 'tissues'],
+		phrases: ['toilettenpapier', 'toilet paper', 'toilet roll', 'loo roll', 'kuechenrolle', 'kitchen roll', 'paper towels', 'papiertuecher', 'papiertaschentuch', 'taschentuecher', 'paper tissues', 'carta igienica', 'carta da cucina', 'rotoloni'],
+		headwords: ['kuechenrolle', 'toilettenpapier', 'taschentuecher', 'tissues', 'fazzoletti', 'scottex'],
 		compoundSuffixes: ['papier', 'kuechenrolle']
 	},
 	{
 		id: 'liquid-personal-care', categoryKey: 'koerperpflege', visualGroup: 'liquid-care',
 		phrases: ['duschgel', 'shower gel', 'body wash', 'handseife', 'fluessigseife', 'liquid soap', 'hand soap', 'bodylotion', 'body lotion', 'mizellenwasser', 'micellar water', 'reinigungsmilch', 'cleansing milk'],
-		headwords: ['shampoo', 'conditioner', 'seife', 'soap', 'mundwasser', 'mouthwash'],
+		headwords: ['shampoo', 'conditioner', 'seife', 'soap', 'mundwasser', 'mouthwash', 'bagnoschiuma', 'docciaschiuma', 'sapone', 'collutorio'],
 		compoundSuffixes: ['shampoo', 'duschgel', 'seife']
 	},
 	{
 		id: 'tea', categoryKey: 'getraenke', visualGroup: 'tea',
 		phrases: ['iced tea', 'ice tea', 'herbal tea', 'green tea', 'black tea', 'fruit tea', 'chai tea'],
-		headwords: ['tee', 'tea', 'matcha', 'chai'],
+		headwords: ['tee', 'tea', 'matcha', 'chai', 'te', 'tisana', 'tisane', 'camomilla', 'infuso'],
 		compoundSuffixes: ['tee']
 	},
 	{
 		id: 'coffee', categoryKey: 'getraenke', visualGroup: 'coffee',
-		phrases: ['cold brew', 'iced coffee', 'filter coffee', 'instant coffee', 'latte macchiato'],
-		headwords: ['kaffee', 'coffee', 'espresso', 'cappuccino', 'latte', 'frappuccino'],
+		phrases: ['cold brew', 'iced coffee', 'filter coffee', 'instant coffee', 'latte macchiato', 'caffe latte', 'caffelatte', 'chai latte', 'iced latte', 'matcha latte', 'oat latte', 'flat white'],
+		// Bare "latte" is milk (Italian); the coffee drink is covered by the phrases above
+		headwords: ['kaffee', 'coffee', 'espresso', 'cappuccino', 'frappuccino', 'caffe', 'cialde'],
 		compoundSuffixes: ['kaffee']
 	},
 	{
 		id: 'sparkling-wine', categoryKey: 'getraenke', visualGroup: 'sparkling-wine',
 		phrases: ['sparkling wine'],
-		headwords: ['sekt', 'prosecco', 'champagner', 'champagne'],
+		headwords: ['sekt', 'prosecco', 'champagner', 'champagne', 'spumante'],
 		compoundSuffixes: ['sekt']
 	},
 	{
 		id: 'wine', categoryKey: 'getraenke', visualGroup: 'wine',
 		phrases: ['red wine', 'white wine', 'rose wine', 'gluehwein', 'rotwein', 'weisswein', 'apfelwein', 'weinschorle'],
-		headwords: ['wein', 'wine']
+		headwords: ['wein', 'wine', 'vino', 'vini']
 	},
 	{
 		id: 'beer', categoryKey: 'getraenke', visualGroup: 'beer',
@@ -136,7 +138,7 @@ const CONCEPT_RULES: ConceptRule[] = [
 	},
 	{
 		id: 'egg', categoryKey: 'milch', visualGroup: 'egg', modifier: true,
-		headwords: ['ei', 'eier', 'egg', 'eggs']
+		headwords: ['ei', 'eier', 'egg', 'eggs', 'uovo', 'uova']
 	},
 	{
 		id: 'nuts', categoryKey: 'snacks', visualGroup: 'nuts', modifier: true,
@@ -153,12 +155,14 @@ const CONCEPT_RULES: ConceptRule[] = [
 	{
 		id: 'liquid-dairy', categoryKey: 'milch', visualGroup: 'milk-container',
 		phrases: ['whole milk', 'condensed milk', 'whipped cream', 'whipping cream', 'heavy cream', 'double cream', 'single cream', 'clotted cream'],
-		headwords: ['milch', 'milk', 'vollmilch', 'buttermilch', 'buttermilk', 'kondensmilch', 'kaffeemilch', 'kefir', 'sahne', 'schlagsahne', 'obers'],
+		headwords: ['milch', 'milk', 'vollmilch', 'buttermilch', 'buttermilk', 'kondensmilch', 'kaffeemilch', 'kefir', 'sahne', 'schlagsahne', 'obers', 'latte', 'panna'],
 		compoundSuffixes: ['milch', 'buttermilch', 'sahne']
 	},
 	{
 		id: 'plant-milk', categoryKey: 'getraenke', visualGroup: 'milk-container',
-		phrases: ['oat milk', 'almond milk', 'soy milk', 'rice milk', 'coconut milk', 'oatmilk', 'almondmilk', 'soymilk', 'rice milk drink', 'hafermilch', 'mandelmilch', 'sojamilch', 'reismilch', 'kokosmilch']
+		phrases: ['oat milk', 'almond milk', 'soy milk', 'rice milk', 'coconut milk', 'oatmilk', 'almondmilk', 'soymilk', 'rice milk drink', 'hafermilch', 'mandelmilch', 'sojamilch', 'reismilch', 'kokosmilch',
+			'latte di soia', 'latte di mandorla', 'latte di avena', 'latte d avena', 'latte di riso', 'latte di cocco',
+			'bevanda di soia', 'bevanda di avena', 'bevanda di mandorla', 'bevanda vegetale']
 	},
 	{
 		id: 'condiment-bottle', categoryKey: 'konserven', visualGroup: 'sauce-bottle',
@@ -232,7 +236,8 @@ const CONCEPT_RULES: ConceptRule[] = [
 	{
 		id: 'juice-drink', categoryKey: 'getraenke',
 		phrases: ['energy drink', 'hot chocolate', 'mineral water', 'sparkling water', 'tonic water', 'ginger beer', 'oat milk', 'almond milk', 'soy milk', 'rice milk', 'coconut milk', 'hafermilch', 'mandelmilch', 'sojamilch', 'reismilch', 'kokosmilch', 'bananenmilch'],
-		headwords: ['wasser', 'water', 'saft', 'juice', 'cola', 'limonade', 'lemonade', 'getraenk', 'getraenke', 'drink', 'drinks', 'sprudel', 'smoothie', 'kakao', 'cocoa', 'sirup', 'syrup', 'kombucha', 'soda', 'squash'],
+		headwords: ['wasser', 'water', 'saft', 'juice', 'cola', 'limonade', 'lemonade', 'getraenk', 'getraenke', 'drink', 'drinks', 'sprudel', 'smoothie', 'kakao', 'cocoa', 'sirup', 'syrup', 'kombucha', 'soda', 'squash',
+			'acqua', 'succo', 'succhi', 'spremuta', 'aranciata', 'limonata', 'bibita', 'bibite'],
 		compoundSuffixes: ['wasser', 'saft', 'schorle', 'limonade']
 	},
 	{
@@ -461,6 +466,19 @@ function bestWordMatch(tokens: string[]): RuleMatch | null {
 	return best;
 }
 
+// Italian puts the head noun first and links the rest with a preposition:
+// "succo di mela" (apple juice), "gelato al pistacchio", "pasta all'uovo".
+const ITALIAN_LINK_WORDS = new Set([
+	'di', 'd', 'del', 'dello', 'della', 'dell', 'dei', 'degli', 'delle',
+	'al', 'allo', 'alla', 'all', 'ai', 'agli', 'alle', 'con'
+]);
+
+/** The words before the first Italian link word, or null when the name has none. */
+function italianHead(tokens: string[]): string[] | null {
+	const index = tokens.findIndex((token, i) => i > 0 && ITALIAN_LINK_WORDS.has(token));
+	return index > 0 ? tokens.slice(0, index) : null;
+}
+
 function asResolution(match: RuleMatch): ItemResolution {
 	return {
 		conceptId: match.rule.id,
@@ -522,10 +540,8 @@ export function createItemResolver(
 		} : null;
 	}
 
-	return (name: string, override?: string | null): ItemResolution => {
-		const normalized = normalizeItemName(name);
-		const tokens = normalized ? normalized.split(' ') : [];
-		const phrase = bestPhraseMatch(normalized);
+	// Phrase → headword/compound → word → category keyword, over the given words
+	function classify(normalized: string, tokens: string[], phrase: RuleMatch | null): ItemResolution | null {
 		const phraseIsModifier = phrase ? isModifierMatch(phrase) : false;
 		const headword = !phrase || phraseIsModifier ? bestHeadwordMatch(tokens) : null;
 		const structuralMatch = phrase && !phraseIsModifier
@@ -534,10 +550,23 @@ export function createItemResolver(
 				? headword
 				: phrase ?? headword;
 		const word = structuralMatch ? null : bestWordMatch(tokens);
-		const base =
+		return (
 			(structuralMatch ? asResolution(structuralMatch) : null) ??
 			(word ? asResolution(word) : null) ??
-			bestHint(normalized, tokens) ??
+			bestHint(normalized, tokens)
+		);
+	}
+
+	return (name: string, override?: string | null): ItemResolution => {
+		const normalized = normalizeItemName(name);
+		const tokens = normalized ? normalized.split(' ') : [];
+		// Phrases always look at the whole name ("latte di soia" is plant milk, not milk)
+		const phrase = bestPhraseMatch(normalized);
+		// Italian names: the head decides; if it says nothing, fall back to the whole name
+		const head = italianHead(tokens);
+		const base =
+			(head ? classify(head.join(' '), head, phrase) : null) ??
+			classify(normalized, tokens, phrase) ??
 			brandMatch(normalized) ?? {
 				conceptId: 'unknown',
 				categoryKey: defaultKey,

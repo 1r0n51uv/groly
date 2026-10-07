@@ -1,0 +1,91 @@
+import type { Messages } from './en';
+
+export const de: Messages = {
+	'tabs.lists': 'Listen',
+	'tabs.tracker': 'Tracker',
+	'tabs.nutrition': 'Ernährung',
+	'tabs.recipes': 'Rezepte',
+	'tabs.settings': 'Einstellungen',
+
+	'common.cancel': 'Abbrechen',
+	'common.delete': 'Löschen',
+	'common.add': 'Hinzufügen',
+	'common.longPressToDelete': 'Lange drücken zum Löschen',
+
+	'lists.empty': 'Noch keine Listen. Lege unten eine an.',
+	'lists.newPlaceholder': 'Neue Liste',
+	'lists.deleteTitle': '„{name}“ löschen?',
+	'lists.deleteMessage': 'Alle Einträge dieser Liste werden gelöscht.',
+
+	'list.empty': 'Diese Liste ist leer.',
+	'list.addPlaceholder': 'Hinzufügen (z. B. 2x Milch, Brot)',
+	'list.deleteItemTitle': '„{name}“ löschen?',
+	'list.done': 'Erledigt',
+
+	'common.save': 'Speichern',
+	'common.remove': 'Entfernen',
+
+	'listOptions.title': 'Listenoptionen',
+	'listOptions.name': 'Name',
+	'listOptions.icon': 'Symbol',
+	'listOptions.noIcon': 'Keins',
+	'listOptions.clearChecked': 'Erledigte Einträge entfernen',
+	'listOptions.clearCheckedConfirm': '{count} erledigte Einträge entfernen?',
+	'listOptions.nothingChecked': 'Es gibt keine erledigten Einträge.',
+	'listOptions.sorting': 'Sortierung',
+	'listOptions.customOrder': 'Eigene Reihenfolge für diese Liste',
+	'listOptions.customOrderHint': 'Aus: Diese Liste nutzt die Sortierung aus den Einstellungen.',
+
+	'sort.groupByCategory': 'Nach Kategorie gruppieren',
+	'sort.orderHint': 'Von oben nach unten, so wie du durch den Laden gehst.',
+	'sort.moveUp': '{category} nach oben',
+	'sort.moveDown': '{category} nach unten',
+
+	'item.title': 'Eintrag bearbeiten',
+	'item.name': 'Name',
+	'item.quantity': 'Menge',
+	'item.category': 'Kategorie',
+	'item.categoryAuto': 'Automatisch ({category})',
+	'item.favorite': 'Favorit',
+	'item.delete': 'Eintrag löschen',
+
+	'favorites.title': 'Favoriten',
+	'favorites.open': 'Favoriten öffnen',
+	'favorites.empty': 'Noch keine Favoriten. Drücke lange auf einen Eintrag in einer Liste und aktiviere den Stern.',
+	'favorites.removeTitle': '„{name}“ aus den Favoriten entfernen?',
+	'favorites.onList': 'Auf der Liste',
+
+	'settings.lists': 'Einkaufslisten',
+	'settings.categoryOrder': 'Kategorie-Reihenfolge',
+	'settings.showFavoriteIndicator': 'Favoriten mit Punkt markieren',
+
+	'comingSoon.title': 'Demnächst',
+	'comingSoon.body': '{feature} ist für ein späteres Update geplant. Du kannst diesen Tab in den Einstellungen ausblenden.',
+
+	'settings.language': 'Sprache',
+	'settings.languageSystem': 'Gerätesprache',
+	'settings.appearance': 'Darstellung',
+	'settings.themeSystem': 'System',
+	'settings.themeLight': 'Hell',
+	'settings.themeDark': 'Dunkel',
+	'settings.sections': 'Bereiche',
+	'settings.sectionsHint': 'Ausgeblendete Bereiche verschwinden aus der Tableiste. Ihre Daten bleiben erhalten.',
+	'settings.backup': 'Backup',
+	'settings.backupHint': 'Alle Daten liegen nur auf diesem Gerät. Exportiere ein Backup, um sie zu sichern oder auf ein neues Handy umzuziehen.',
+	'settings.export': 'Backup exportieren',
+	'settings.import': 'Backup importieren',
+	'settings.importConfirmTitle': 'Alle Daten ersetzen?',
+	'settings.importConfirmMessage': 'Deine aktuellen Listen und Einstellungen werden durch das Backup ersetzt. Das kann nicht rückgängig gemacht werden.',
+	'settings.importConfirm': 'Ersetzen',
+	'settings.importDone': 'Backup wiederhergestellt',
+	'settings.importDoneMessage': '{lists} Listen und {items} Einträge importiert.',
+	'settings.importInvalid': 'Diese Datei ist kein gültiges Groly-Backup.',
+	'settings.importNewer': 'Dieses Backup stammt von einer neueren Groly-Version. Bitte aktualisiere zuerst die App.',
+	'settings.exportFailed': 'Export fehlgeschlagen',
+	'settings.importFailed': 'Import fehlgeschlagen',
+	'settings.about': 'Über',
+	'settings.version': 'Version {version}',
+	'settings.disclaimerTitle': 'Gesundheitshinweis',
+	'settings.disclaimer':
+		'Groly ist kein Medizinprodukt. Angaben zu Ernährung, Nahrungsergänzung und Kalorien dienen nur zur allgemeinen Orientierung und ersetzen keine Beratung durch Ärztin, Arzt oder Ernährungsfachkraft.'
+};

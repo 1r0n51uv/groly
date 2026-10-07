@@ -1,0 +1,10 @@
+appId: com.sevamm.groly
+---
+# Creates ${LIST} from the overview; the app then opens it
+- tapOn:
+    id: new-list-input
+- inputText: ${LIST}
+- tapOn:
+    id: new-list-button
+- assertVisible:
+    id: list-empty

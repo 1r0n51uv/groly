@@ -1,0 +1,67 @@
+appId: com.sevamm.groly
+name: Edit items and remember a chosen category
+tags:
+  - items
+---
+- launchApp:
+    clearState: true
+- runFlow:
+    file: subflows/create_list.yaml
+    env:
+      LIST: Groceries
+- tapOn:
+    id: add-input
+- inputText: Tofu, 2x Milch
+- tapOn:
+    id: add-button
+- hideKeyboard
+
+# Change quantity and category of Tofu (the shared resolver files it with meat substitutes)
+- longPressOn:
+    id: item-Tofu
+- assertVisible: "Automatic \\(Meat & Fish\\)"
+- tapOn:
+    id: item-quantity
+- inputText: 400g
+- scrollUntilVisible:
+    element:
+      id: category-milch
+- tapOn:
+    id: category-milch
+- tapOn:
+    id: item-save
+- assertVisible:
+    id: section-milch
+- assertNotVisible:
+    id: section-fleisch
+- assertVisible: 400g
+
+# Rename
+- longPressOn:
+    id: item-Milch
+- tapOn:
+    id: item-name
+- eraseText
+- inputText: Hafermilch
+- tapOn:
+    id: item-save
+- assertVisible:
+    id: item-Hafermilch
+- assertNotVisible:
+    id: item-Milch
+
+# The chosen category is remembered for the same name on any list
+- back
+- runFlow:
+    file: subflows/create_list.yaml
+    env:
+      LIST: Next week
+- tapOn:
+    id: add-input
+- inputText: tofu
+- tapOn:
+    id: add-button
+- assertVisible:
+    id: section-milch
+- assertNotVisible:
+    id: section-fleisch

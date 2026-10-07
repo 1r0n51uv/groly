@@ -1,0 +1,63 @@
+appId: com.sevamm.groly
+name: Hide and show sections, switch to dark mode
+tags:
+  - settings
+---
+- launchApp:
+    clearState: true
+
+# All sections are on by default and show a placeholder for now
+- tapOn:
+    id: tab-recipes
+- assertVisible:
+    id: coming-soon
+- assertVisible: Coming soon
+
+# Hiding a section removes its tab, also after a restart
+- tapOn:
+    id: tab-settings
+- scrollUntilVisible:
+    element:
+      id: toggle-showRecipes
+- tapOn:
+    id: toggle-showRecipes
+- assertNotVisible:
+    id: tab-recipes
+- assertVisible:
+    id: tab-tracker
+- stopApp
+- launchApp
+- assertNotVisible:
+    id: tab-recipes
+
+- tapOn:
+    id: tab-settings
+- scrollUntilVisible:
+    element:
+      id: toggle-showRecipes
+- tapOn:
+    id: toggle-showRecipes
+- assertVisible:
+    id: tab-recipes
+
+# Dark mode applies app-wide; screenshots are checked by eye
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: theme-dark
+- tapOn:
+    id: theme-dark
+- takeScreenshot: settings-dark
+- tapOn:
+    id: tab-lists
+- runFlow:
+    file: subflows/create_list.yaml
+    env:
+      LIST: Night
+- tapOn:
+    id: add-input
+- inputText: Brot, 2x Milch
+- tapOn:
+    id: add-button
+- hideKeyboard
+- takeScreenshot: list-dark

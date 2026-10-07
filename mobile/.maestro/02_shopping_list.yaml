@@ -1,0 +1,73 @@
+appId: com.sevamm.groly
+name: Add, group, check and delete items
+tags:
+  - items
+---
+- launchApp:
+    clearState: true
+- runFlow:
+    file: subflows/create_list.yaml
+    env:
+      LIST: Groceries
+
+# Quick entry: comma-separated, with quantity prefix
+- tapOn:
+    id: add-input
+- inputText: Bananen, 2x Milch
+- tapOn:
+    id: add-button
+- assertVisible:
+    id: item-Bananen
+- assertVisible: 2x
+
+# Items are grouped by the category resolver shared with the web app
+- assertVisible:
+    id: section-obst
+- assertVisible:
+    id: section-milch
+
+- tapOn:
+    id: add-input
+- inputText: 500g Hackfleisch, Brot
+- tapOn:
+    id: add-button
+- assertVisible:
+    id: item-Hackfleisch
+- assertVisible:
+    id: item-Brot
+- assertVisible:
+    id: section-fleisch
+- assertVisible:
+    id: section-backwaren
+- assertVisible: 500g
+- hideKeyboard
+- takeScreenshot: list
+
+# Check off an item: it moves to the "done" section
+- tapOn:
+    id: item-Bananen
+- assertVisible:
+    id: section-checked
+- assertNotVisible:
+    id: section-obst
+
+# Long-press opens the edit sheet; delete from there after confirmation
+- longPressOn:
+    id: item-Brot
+- scrollUntilVisible:
+    element:
+      id: item-delete
+- tapOn:
+    id: item-delete
+- tapOn: "(?i)delete"
+- assertNotVisible:
+    id: item-Brot
+- assertNotVisible:
+    id: section-backwaren
+
+# Overview count: Milch + Hackfleisch are still open
+- back
+- assertVisible:
+    id: list-count-Groceries
+    text: "2"
+- takeScreenshot: lists

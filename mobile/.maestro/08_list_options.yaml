@@ -1,0 +1,100 @@
+appId: com.sevamm.groly
+name: Rename, icon, clear checked, own category order per list
+tags:
+  - lists
+---
+- launchApp:
+    clearState: true
+- runFlow:
+    file: subflows/create_list.yaml
+    env:
+      LIST: Market
+- tapOn:
+    id: add-input
+- inputText: Milch, Bananen, Brot
+- tapOn:
+    id: add-button
+- hideKeyboard
+- tapOn:
+    id: item-Brot
+
+# Default order (web default): dairy above fruit & veg
+- assertVisible:
+    id: section-obst
+    below:
+      id: section-milch
+
+- tapOn:
+    id: list-options-button
+- tapOn:
+    id: list-name
+- eraseText
+- inputText: Weekly market
+- pressKey: Enter
+- tapOn:
+    id: icon-bio
+- scrollUntilVisible:
+    element:
+      id: clear-checked
+- tapOn:
+    id: clear-checked
+- tapOn: "(?i)remove"
+
+# Own order for this list: move fruit & veg above dairy
+- scrollUntilVisible:
+    element:
+      id: list-custom-order
+- tapOn:
+    id: list-custom-order
+- scrollUntilVisible:
+    element:
+      id: move-up-obst
+- tapOn:
+    id: move-up-obst
+- tapOn:
+    id: move-up-obst
+- tapOn:
+    id: move-up-obst
+- back
+
+- assertVisible: Weekly market
+- assertVisible:
+    id: section-milch
+    below:
+      id: section-obst
+- assertNotVisible:
+    id: section-checked
+- takeScreenshot: list-custom-order
+
+# Grouping off for this list: one plain section
+- tapOn:
+    id: list-options-button
+- scrollUntilVisible:
+    element:
+      id: sort-enabled
+- tapOn:
+    id: sort-enabled
+- back
+- assertVisible:
+    id: section-all
+- assertNotVisible:
+    id: section-obst
+
+# The overview shows the new name and icon; other lists keep the global order
+- back
+- assertVisible:
+    id: list-Weekly market
+- takeScreenshot: lists-with-icon
+- runFlow:
+    file: subflows/create_list.yaml
+    env:
+      LIST: Other
+- tapOn:
+    id: add-input
+- inputText: Milch, Bananen
+- tapOn:
+    id: add-button
+- assertVisible:
+    id: section-obst
+    below:
+      id: section-milch

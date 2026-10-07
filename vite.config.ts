@@ -1,9 +1,15 @@
+/// <reference types="vitest/config" />
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import { configDefaults } from 'vitest/config';
 
 export default defineConfig({
+	test: {
+		// The Expo app has its own Vitest setup (aliases, SQLite adapter): `cd mobile && npm test`
+		exclude: [...configDefaults.exclude, 'mobile/**']
+	},
 	server: {
 		// Allow ngrok hostnames so the dev server is reachable from a phone via
 		// `ngrok http 5173`. Dev-only — has no effect on the production build.

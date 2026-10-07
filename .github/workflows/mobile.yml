@@ -1,0 +1,48 @@
+name: Mobile app checks
+
+on:
+  push:
+    paths:
+      - 'mobile/**'
+      # The app imports shared modules (categories, …) from here
+      - 'src/lib/**'
+      - '.github/workflows/mobile.yml'
+  pull_request:
+    paths:
+      - 'mobile/**'
+      - 'src/lib/**'
+      - '.github/workflows/mobile.yml'
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mobile
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit and database tests
+        run: npm test
+
+      - name: Expo doctor
+        run: npx expo-doctor
