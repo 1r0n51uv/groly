@@ -1,4 +1,5 @@
 import { Stack } from 'expo-router';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { SQLiteProvider } from 'expo-sqlite';
 import { DATABASE_NAME, cleanupOldData, migrate, type Db } from '@/db';
@@ -12,11 +13,13 @@ async function initDatabase(db: Db) {
 
 export default function RootLayout() {
 	return (
-		<SQLiteProvider databaseName={DATABASE_NAME} onInit={initDatabase}>
-			<SettingsProvider>
-				<StatusBar style="auto" />
-				<Stack screenOptions={{ headerShown: false }} />
-			</SettingsProvider>
-		</SQLiteProvider>
+		<GestureHandlerRootView style={{ flex: 1 }}>
+			<SQLiteProvider databaseName={DATABASE_NAME} onInit={initDatabase}>
+				<SettingsProvider>
+					<StatusBar style="auto" />
+					<Stack screenOptions={{ headerShown: false }} />
+				</SettingsProvider>
+			</SQLiteProvider>
+		</GestureHandlerRootView>
 	);
 }

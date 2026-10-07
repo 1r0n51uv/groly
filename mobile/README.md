@@ -12,7 +12,8 @@ Standalone iOS/Android version of Groly. Everything is **stored on the device** 
   is remembered for that name, like on the server
 - **Suggestions** while typing, from names you used before (recent first; unused for 6 months → gone)
 - **Favourites:** star in the edit sheet, dot on the item (can be turned off), panel to re-add them
-- **Category order:** global (Settings) or per list (list options), or no grouping at all
+- **Category order:** drag categories by their handle, globally (Settings) or per list (list
+  options), or switch grouping off. Screen readers get "move up / move down" actions instead
 - **Clean-up at start:** checked items older than 60 days are removed (same as the server)
 - **Tabs:** Lists · Tracker · Nutrition · Recipes · Settings. Tracker, Nutrition and Recipes are
   placeholders until their phase; each can be hidden in Settings
@@ -100,7 +101,7 @@ Flows live in `.maestro/`, drive the real release build, and each starts from a 
 | `05_sections_and_theme` | Hide/show a tab (persisted), dark mode screenshots |
 | `06_item_edit` | Edit quantity/name, pick a category, the category is remembered on another list |
 | `07_suggestions_favorites` | Suggestion chip adds an item, favourite dot, re-add from the panel, dot setting |
-| `08_list_options` | Rename, icon, remove checked, own category order per list, grouping off |
+| `08_list_options` | Rename, icon, remove checked, drag a category in a list's own order, grouping off |
 
 ```sh
 emulator -avd groly_e2e -no-window -memory 4096 -cores 4 -gpu swiftshader_indirect   # once

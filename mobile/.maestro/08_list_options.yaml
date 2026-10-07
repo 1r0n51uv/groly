@@ -48,13 +48,14 @@ tags:
     id: list-custom-order
 - scrollUntilVisible:
     element:
-      id: move-up-obst
-- tapOn:
-    id: move-up-obst
-- tapOn:
-    id: move-up-obst
-- tapOn:
-    id: move-up-obst
+      id: drag-obst
+# Drag fruit & veg by its handle towards the top (it stops at the first row)
+- swipe:
+    from:
+      id: drag-obst
+    direction: UP
+    duration: 1500
+- takeScreenshot: order-after-drag
 - back
 
 - assertVisible: Weekly market

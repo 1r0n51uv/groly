@@ -33,6 +33,20 @@ export function effectiveSort(settings: AppSettings, listId?: string): CategoryS
 export const toDisplay = (order: string[]) => [...order].reverse();
 export const fromDisplay = (displayOrder: string[]) => [...displayOrder].reverse();
 
+/** Moves the entry at `from` to `to`, shifting the ones in between. */
+export function moveIndex<T>(list: T[], from: number, to: number): T[] {
+	if (from === to || from < 0 || from >= list.length) return list;
+	const next = [...list];
+	const [moved] = next.splice(from, 1);
+	next.splice(Math.max(0, Math.min(to, next.length)), 0, moved);
+	return next;
+}
+
+/** Where a row dragged by `dy` pixels lands, for rows of equal height. */
+export function dropIndex(from: number, dy: number, rowHeight: number, count: number): number {
+	return Math.max(0, Math.min(count - 1, from + Math.round(dy / rowHeight)));
+}
+
 /** Moves `key` one step up (-1) or down (+1) in a top-down display order. */
 export function moveInDisplay(displayOrder: string[], key: string, delta: -1 | 1): string[] {
 	const from = displayOrder.indexOf(key);

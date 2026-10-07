@@ -1,6 +1,24 @@
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_CATEGORY_ORDER } from '$lib/categories';
-import { effectiveSort, fromDisplay, moveInDisplay, normalizeOrder, toDisplay } from './categoryOrder';
+import { dropIndex, effectiveSort, fromDisplay, moveInDisplay, moveIndex, normalizeOrder, toDisplay } from './categoryOrder';
+
+describe('drag and drop', () => {
+	it('moves an entry and shifts the ones in between', () => {
+		expect(moveIndex(['a', 'b', 'c', 'd'], 3, 1)).toEqual(['a', 'd', 'b', 'c']);
+		expect(moveIndex(['a', 'b', 'c', 'd'], 0, 2)).toEqual(['b', 'c', 'a', 'd']);
+		expect(moveIndex(['a', 'b', 'c'], 1, 1)).toEqual(['a', 'b', 'c']);
+		expect(moveIndex(['a', 'b', 'c'], 0, 99)).toEqual(['b', 'c', 'a']);
+	});
+
+	it('turns drag distance into a row position, clamped to the list', () => {
+		expect(dropIndex(5, 0, 52, 13)).toBe(5);
+		expect(dropIndex(5, -60, 52, 13)).toBe(4); // a bit more than one row up
+		expect(dropIndex(5, -20, 52, 13)).toBe(5); // less than half a row: stays
+		expect(dropIndex(5, 3 * 52, 52, 13)).toBe(8);
+		expect(dropIndex(5, -1000, 52, 13)).toBe(0);
+		expect(dropIndex(5, 1000, 52, 13)).toBe(12);
+	});
+});
 
 describe('normalizeOrder', () => {
 	it('defaults to the web default order', () => {

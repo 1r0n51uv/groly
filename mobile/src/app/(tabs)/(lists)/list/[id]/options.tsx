@@ -1,5 +1,7 @@
 import { useCallback, useState } from 'react';
-import { Alert, ScrollView, TextInput } from 'react-native';
+import { Alert, TextInput } from 'react-native';
+// Gesture handler's ScrollView, so dragging a category handle wins over scrolling
+import { ScrollView } from 'react-native-gesture-handler';
 import { useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { LIST_ICONS } from '$lib/listIcons';
@@ -21,6 +23,7 @@ export default function ListOptions() {
 	const [list, setList] = useState<List | null>(null);
 	const [name, setName] = useState('');
 	const [checkedCount, setCheckedCount] = useState(0);
+	const [dragging, setDragging] = useState(false);
 
 	const load = useCallback(async () => {
 		const [l, items] = await Promise.all([getList(db, id), getItems(db, id)]);
@@ -72,7 +75,7 @@ export default function ListOptions() {
 	}
 
 	return (
-		<ScrollView contentContainerStyle={formStyles.content} keyboardShouldPersistTaps="handled">
+		<ScrollView contentContainerStyle={formStyles.content} keyboardShouldPersistTaps="handled" scrollEnabled={!dragging}>
 			<Section title={t('listOptions.name')}>
 				<Row first>
 					<TextInput
@@ -121,6 +124,7 @@ export default function ListOptions() {
 					enabled={sort.enabled}
 					order={sort.order}
 					onChange={(enabled, order) => update({ listCategorySettings: { ...listSettings, [id]: { enabled, order } } })}
+					onDraggingChange={setDragging}
 				/>
 			)}
 		</ScrollView>
